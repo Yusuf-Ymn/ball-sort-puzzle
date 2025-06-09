@@ -16,7 +16,12 @@ char colors[] = {'K', 'M', 'T', 'P', 'S', 'Y', 'G', 'L'}; // K: Red, M: Blue, et
 
 // Function to display the current state of the tubes and balls
 void displayTubes() {
-    system("cls");  // Clear screen (Windows specific)
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+
     printf("Game Area:\n");
     for (int i = 0; i < totalTubes; i++) {
         printf("Tube %d: ", i + 1);
